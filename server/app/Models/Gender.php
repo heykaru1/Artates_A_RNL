@@ -11,13 +11,15 @@ class Gender extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'table_genders';
+    protected $table = 'tbl_genders';
     protected $primaryKey = 'gender_id';
-    protected $fillable =[
+    protected $fillable = [
         'gender',
+        'is_deleted',
     ];
 
-    public function users():HasMany {
+    public function users(): HasMany
+    {
         return $this->hasMany(User::class, 'gender_id', 'gender_id');
     }
 }
